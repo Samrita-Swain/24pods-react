@@ -27,7 +27,8 @@ function App() {
       {/* ✅ Header must be inside Router */}
       <Header onOpenForm={() => setShowModal(true)} />
 
-      <Routes>
+      <main className="main-content">
+        <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about_us" element={<AboutUs />} />
         <Route path="/how_can_we_help" element={<Help />} />
@@ -38,6 +39,7 @@ function App() {
         <Route path="/our_portfolio" element={<OurPotfolio />} />
         <Route path="/contact_us" element={<Contact />} />
       </Routes>
+      </main>
 
       <Footer />
 

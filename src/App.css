@@ -944,7 +944,7 @@ a{
   margin-bottom: 10px;
 }
 .help-banner {
-  background: url(../public/images/help-banner.png) no-repeat center center/cover;
+  background: url(../images/help-banner.png) no-repeat center center/cover;
   height: 50vh; /* adjust height as needed */
   position: relative;
   display: flex;
