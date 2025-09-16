@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FaCommentDots } from 'react-icons/fa';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Guest = () => {
+   useEffect(() => {
+          AOS.init({
+              duration: 1000,
+              once: false,
+              mirror: true
+          });
+      }, []);
   return (
     <section>
         <div className="guest-banner d-flex align-items-center justify-content-center text-center">
@@ -19,7 +28,7 @@ const Guest = () => {
 
         <Row className="g-4">
           <Col xs={12} md={6}>
-            <div className="guest-card purple-card h-100">
+            <div className="guest-card purple-card h-100" data-aos="fade-left">
               <h5>Your Consultant for Guest Spots</h5>
               <p style={{textAlign:"center"}}>
                 We help you find the right podcasts to share your voice, connect with the right audiences,
@@ -29,7 +38,7 @@ const Guest = () => {
             </div>
           </Col>
           <Col xs={12} md={6}>
-            <div className="guest-card light-card h-100">
+            <div className="guest-card light-card h-100" data-aos="fade-right">
               <h5>Join Us on Inspire from Reality</h5>
               <p style={{textAlign:"center"}}>
                 Our own podcast, hosted by Alaka, is where raw truth meets real stories. No filters.
@@ -54,14 +63,14 @@ const Guest = () => {
 
       <div className="guest-video-content">
         <h1>Your Story. Our Studio. Zero Stress.</h1>
-        <button className="join-btn">Join Us</button>
+        <a href="/become_a_member"><button className="join-btn">Join Us</button></a>
       </div>
     </div>
     <div className="inspire-section py-5">
       <Container>
         <Row className="align-items-center">
           <Col md={6} className="mb-4 mb-md-0">
-            <div className="image-wrapper">
+            <div className="image-wrapper" data-aos="flip-left">
               <img
                 src="/images/one.png"
                 alt="AI in Focus"
@@ -69,7 +78,7 @@ const Guest = () => {
               />
             </div>
           </Col>
-          <Col md={6}>
+          <Col md={6}  data-aos="zoom-in-left">
             <h2 className="section-title" style={{textSize:"35px"}}>Inspire from Reality</h2>
             <p>
               Alaka, our founder, believes you don’t need to fit in—you’re meant to stand out.
@@ -83,7 +92,7 @@ const Guest = () => {
               <FaCommentDots className="icon" />
               If your story can spark a change, let’s share it.
             </p>
-            <Button className="cta-btn mt-3">Checkout Yourself</Button>
+            <a href="/inspire_from_reality"><Button className="cta-btn mt-3">Checkout Yourself</Button></a>
           </Col>
         </Row>
       </Container>

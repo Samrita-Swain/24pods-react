@@ -18,6 +18,7 @@ import Reality from "./pages/Reality";
 import Gallery from "./pages/Gallery";
 import OurPotfolio from "./pages/OurPotfolio";
 import Contact from "./pages/Contact";
+import ScrollToTopButton from "./pages/ScrollToTopButton";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -42,6 +43,7 @@ function App() {
       </main>
 
       <Footer />
+      <ScrollToTopButton />
 
       {/* ✅ Popup Form */}
       <PopupForm show={showModal} handleClose={() => setShowModal(false)} />

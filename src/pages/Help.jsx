@@ -1,5 +1,7 @@
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import React, { useState, useEffect } from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 import { FaPodcast, FaCalendarCheck, FaUsers, FaVideo } from 'react-icons/fa';
 
@@ -71,6 +73,13 @@ const Help = () => {
       text: 'Throwing money at ads without strategy is a fast way to get nothing back. We create campaigns built for your audience, delivering attention that translates into clicks, conversations, and conversions.',
     },
   ];
+  useEffect(() => {
+          AOS.init({
+              duration: 1000,
+              once: false,
+              mirror: true
+          });
+      }, []);
 
     return (
        <section>
@@ -85,7 +94,7 @@ const Help = () => {
                     <h2 className="section-title" style={{fontSize:"35px"}}>All that you need</h2>
                     <p className="section-subtitle">
                         From the first click of the camera to your audience hitting
-                        <span className="highlight"> “play,”</span> we handle it all.
+                        <span className="highlight" style={{color:"#660033"}}> “play,”</span> we handle it all.
                     </p>
 
                     <div className="row g-3">
@@ -112,7 +121,7 @@ const Help = () => {
 
                 {/* Right Side */}
                 <div className="col-lg-6 col-md-12 text-center">
-                    <div className="images-wrapper">
+                    <div className="images-wrapper"  data-aos="zoom-out">
                         <img
                             src="/images/garima.jpg"
                             alt="Service 1"
@@ -156,6 +165,7 @@ const Help = () => {
               lg={3}
               key={index}
               className="mb-4 d-flex align-items-stretch"
+              data-aos="fade-up"
             >
               <div className="custom-card text-center p-4 w-100">
                 <div className="icon mb-3">{item.icon}</div>
@@ -167,22 +177,28 @@ const Help = () => {
         {activeTab === 'post' &&
           postProductionContent.map((item, index) => (
             <Col
-              xs={12}
-              md={6}
-              lg={4}
-              key={index}
-              className="mb-4 d-flex align-items-stretch"
+            xs={12}
+            md={6}
+            lg={4}
+            key={index}
+            className="mb-4 d-flex align-items-stretch"
+            data-aos="fade-up"
+          >
+            <div
+              className={`post-production-card custom-card text-start p-4 w-100 ${
+                item.title === "Social Media" ? "social-media-card" : ""
+              }`}
             >
-              <div className="custom-card text-start p-4 w-100">
-                <h5>{item.title}</h5>
-                <p>{item.text}</p>
-              </div>
-            </Col>
+              <h5 className="card-title">{item.title}</h5>
+              <p className="card-text">{item.text}</p>
+            </div>
+          </Col>
           ))}
       </Row>
 
-      <div className="text-center mt-4">
-        <Button variant="danger">View Packages</Button>
+      <div className="text-center mt-4" data-aos="fade-up">
+        <a href="/files/packages.pdf" target="_blank" rel="noopener noreferrer"><Button variant="danger">View Packages</Button></a>
+
       </div>
     </Container>
         </div>

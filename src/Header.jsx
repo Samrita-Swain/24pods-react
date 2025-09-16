@@ -14,7 +14,7 @@ const Header = ({ onOpenForm }) => {
         <Container className="d-flex justify-content-between align-items-center">
           {/* Logo */}
           <div className="logo-box d-flex align-items-center">
-            <a href="#">
+            <a href="/">
               <img
                 src="/images/24Pods-Logo_transparent.png"
                 alt="Logo"

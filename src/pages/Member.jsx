@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import JoinForm from '../form/JoinForm';
 import { TiTick } from "react-icons/ti";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const featuresLeft = [
   {
@@ -41,7 +43,15 @@ const featuresRight = [
   }
 ];
 
+
 const Member = () => {
+  useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: false,
+            mirror: true
+        });
+    }, []);
   return (
    <section>
     <div className="member-banner d-flex align-items-center justify-content-center text-center">
@@ -51,7 +61,7 @@ const Member = () => {
       <Container>
         <Row className="align-items-center">
           {/* TEXT SECTION */}
-          <Col md={6} className="text-light mb-4 mb-md-0">
+          <Col md={6} className="text-light mb-4 mb-md-0"  data-aos="zoom-in-right">
             <h2 className="section-title" style={{fontSize:"35px"}}>
               Why Join <span className="highlight">PodsMembership</span>?
             </h2>
@@ -65,11 +75,11 @@ const Member = () => {
             <p>
               We take the chaos off your plate — so your podcast not only survives, it thrives.
             </p>
-            <Button className="join-btn mt-3">Join Us</Button>
+            <a href="/contact_us"><Button className="join-btn mt-3">Join Us</Button></a>
           </Col>
 
           {/* IMAGE SECTION */}
-          <Col md={6}>
+          <Col md={6}  data-aos="zoom-in-left">
             <div className="image-container">
               <img
                 src="/images/two.png" 
@@ -85,7 +95,7 @@ const Member = () => {
       <Container>
         <Row className="align-items-center">
           {/* Left Image */}
-          <Col md={6} className="mb-4 mb-md-0">
+          <Col md={6} className="mb-4 mb-md-0" data-aos="zoom-in-left">
             <img
               src="/images/alaka-g.png"  // Replace with your correct image path
               alt="AI in Focus"
@@ -94,7 +104,7 @@ const Member = () => {
           </Col>
 
           {/* Right Text */}
-          <Col md={6}>
+          <Col md={6} data-aos="zoom-in-right">
             <h2 className="section-heading" style={{fontSize:"35px"}}>
               Your <span className="black-text">Own-</span>
               <span className="highlight-text">Own PodsTeam</span>
@@ -122,7 +132,7 @@ const Member = () => {
 
         <Row className="align-items-center">
           {/* Left Features */}
-          <Col md={4}>
+          <Col md={4} data-aos="fade-up-right">
             {featuresLeft.map((feature, index) => (
               <div className="feature-card mb-3" key={index}>
                 <div className="icon-check"> <TiTick /></div>
@@ -136,15 +146,17 @@ const Member = () => {
 
           {/* Center Image */}
           <Col md={4} className="text-center mb-4 mb-md-0">
-            <img
-              src="/images/alaka.jpeg"
+            <div className="what-get-img" data-aos="zoom-in">
+              <img
+              src="/images/alka-img.jpeg"
               alt="What You Get"
               className="img-fluid rounded custom-image"
             />
+            </div>
           </Col>
 
           {/* Right Features */}
-          <Col md={4}>
+          <Col md={4} data-aos="fade-up-left">
             {featuresRight.map((feature, index) => (
               <div className="feature-card mb-3" key={index}>
                 <div className="icon-check"> <TiTick /></div>
@@ -181,7 +193,7 @@ const Member = () => {
           </div>
 
           <div className="investment-actions">
-            <button className="cta-btn">👉 Let us be your Own-Own PodsTeam</button>
+            <a href="/contact_us"><button className="cta-btn">👉 Let us be your Own-Own PodsTeam</button></a>
             <div className="limit-badge">⚡ Limited to <strong>10 members</strong> only.</div>
           </div>
 

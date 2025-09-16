@@ -5,10 +5,14 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 const AboutUs = () => {
-  // ✅ Initialize AOS properly
-  useEffect(() => {
-    AOS.init({ duration: 800, once: true });
-  }, []);
+  
+   useEffect(() => {
+        AOS.init({
+            duration: 1000,
+            once: false,
+            mirror: true
+        });
+    }, []);
 
   return (
     <section>
@@ -25,20 +29,23 @@ const AboutUs = () => {
             <Col lg={6} className="text-center mb-4 mb-lg-0">
               <div className="image-stack">
                 <div className="main-circle">
-                  <img src="/images/group-img.jpeg" alt="Team" className="img-fluid" />
+                  <img src="/images/group-img.jpeg" alt="Team" className="img-fluid" data-aos="zoom-in"/>
                 </div>
-                <span className="experience-badge">10 Years of Experience</span>
+                <div className="experience-badge" data-aos="fade-right">
+                  <div className="number">10+</div>
+                  <div className="experience-content">Years of<br></br>Experience</div>
+                </div>
                 <div className="small-circle top-right">
-                  <img src="/images/rachecl-garima-small.png" alt="Small1" className="img-fluid" />
+                  <img src="/images/rachecl-garima-small.png" alt="Small1" className="img-fluid" data-aos="zoom-in"/>
                 </div>
                 <div className="small-circle bottom-left">
-                  <img src="/images/alka-about.png" alt="Small2" className="img-fluid" />
+                  <img src="/images/alka-about.png" alt="Small2" className="img-fluid" data-aos="zoom-in"/>
                 </div>
               </div>
             </Col>
 
             {/* Right - Text */}
-            <Col lg={6}>
+            <Col lg={6} data-aos="fade-left">
               <h6 className="text-uppercase fw-bold text-muted">About Us</h6>
               <h2 className="fw-bold" style={{fontSize:"35px"}}>
                 24 Pods — Turning <span className="highlight">Your Ideas</span> into{" "}
@@ -51,11 +58,11 @@ const AboutUs = () => {
                 podcast that people actually want to hear takes more than a mic and
                 a Zoom link.
               </p>
-              <p>
+              <p style={{marginBottom:"20px"}}>
                 It takes story craft. It takes editing precision. It takes knowing
                 exactly how to turn one conversation into something binge-worthy.
               </p>
-              <p className="fw-bold text-danger">That’s where 24 Pods comes in.</p>
+              <p className="fw-bold" style={{color:"#660033"}}>That’s where 24 Pods comes in.</p>
             </Col>
           </Row>
 
@@ -117,7 +124,7 @@ const AboutUs = () => {
       <div className="about-second">
         <Container>
           <Row className="align-items-center">
-            <Col lg={6} className="text-white">
+            <Col lg={6} className="text-white" data-aos="fade-right">
               <h2 className="section-title mb-4" style={{color: "#fff", fontSize: "35PX"}}>The Story Behind
                 <span className="highlight"> 24 Pods</span>
               </h2>
@@ -138,7 +145,7 @@ const AboutUs = () => {
             </Col>
 
             <Col lg={6} className="text-center mt-4 mt-lg-0" style={{display: "flex", justifyContent:"center"}}>
-              <div className="about-second-img">
+              <div className="about-second-img" data-aos="zoom-in">
                 <img src="/images/alka-img.jpeg" alt="Founder" className="img-fluid founder-img" />
               </div>
             </Col>
@@ -158,7 +165,7 @@ const AboutUs = () => {
             We’re here so your podcast doesn’t just “go live” — it lives in people’s heads.
             We don’t want you to be another show in the feed. We want you to be the show people tell their friends about.
           </p>
-          <a href="#join" className="btn btn-primary custom-btn mt-3">Join Us</a>
+          <a href="/contact_us" className="btn btn-primary custom-btn mt-3">Join Us</a>
         </div>
       </div>
 
@@ -189,7 +196,7 @@ const AboutUs = () => {
             </Col>
 
             <Col lg={6} className="text-center mt-4 mt-lg-0">
-              <img src="/images/team.jpeg" alt="Team" className="img-fluid" />
+              <img src="/images/team.jpeg" alt="Team" className="img-fluid" data-aos="zoom-in"/>
             </Col>
           </Row>
         </Container>
